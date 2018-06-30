@@ -1,0 +1,24 @@
+{
+  "name": "clickygame",
+  "version": "1.0.0",
+  "description": "Clicky Game is a memory game that uses the React.js framework. There are several images on the screen. Each time you click an image, all of the images on the page will shuffle and you'll increase your score. The hard part is that you cannot click the same image twice, or your score will be reset to zero.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kglibrarian/clickygame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kglibrarian/clickygame/issues"
+  },
+  "homepage": "https://github.com/kglibrarian/clickygame#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.7"
+  }
+}
