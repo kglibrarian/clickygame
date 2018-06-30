@@ -15,32 +15,41 @@ class App extends Component {
     count: 0
   };
 
-  handleItemClick = (id) => {
-    
 
-    this.handleIncrement()
-  }
+componentDidMount() {
+  this.setState({friends: this.shuffleData(this.state.friends)})
+}
+ 
     
   
-  shuffleFriend = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
-  };
+  //takes in old friends and returns shuffled old friends which is actually new friends
+    shuffleData = data => {
+      let i = data.length - 1;
+        while (i > 0) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = data[i];
+          data[i] = data[j];
+          data[j] = temp;
+          i--;
+        }
+        return data;
+    };
 
   // handleIncrement increases this.state.count by 1
-  handleIncrement = () => {
+  handleIncrement = oldFriends => {
     // We always use the setState method to update a component's state
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ 
+      count: this.state.count + 1,
+      friends: this.shuffleData(oldFriends) 
+    });
+    
   };
 
-  // handleDecrement decreases this.state.count by 1
-  handleDecrement = () => {
-    // We always use the setState method to update a component's state
-    this.setState({ count: this.state.count - 1 });
-  };
-
+  handleItemClick = id => {
+    console.log("I'm here");
+    this.handleIncrement(this.state.friends)
+  }
+  
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
@@ -52,8 +61,7 @@ class App extends Component {
             </div>
             <CardBody
             count={this.state.count}
-            handleIncrement={this.handleIncrement}
-            handleDecrement={this.handleDecrement}
+            
             />
         </div>
         
