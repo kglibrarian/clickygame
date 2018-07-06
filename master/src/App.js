@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-// import Counter from "./components/Counter/Counter";
 import CardBody from "./components/CardBody/CardBody";
 import FriendCard from "./components/FriendCard/FriendCard";
 import Wrapper from "./components/Wrapper/Wrapper";
-import Title from "./components/Title/Title";
+import Container from "./components/Container/Container";
 import friends from "../src/friend.json";
 import "./App.css";
 
@@ -61,26 +60,21 @@ componentDidMount() {
             </div>
             <CardBody
             count={this.state.count}
-            
             />
         </div>
-        
-      
-        
-        <Title>Friends List</Title>
-        {this.state.friends.map(friend => (
-          <Wrapper>
-          <FriendCard
-            handleClick={this.handleItemClick}
-            id={friend.id}
-            key={friend.id}
-            image={friend.image}
-            
-          />
-           </Wrapper>
-        ))}
-     
-    </div>
+        <Container>
+          {this.state.friends.map(friend => (
+            <Wrapper>
+              <FriendCard
+                handleClick={this.handleItemClick}
+                id={friend.id}
+                key={friend.id}
+                image={friend.image}
+              />
+            </Wrapper>
+          ))}
+        </Container>
+      </div>
     );
   }
 }
