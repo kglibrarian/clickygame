@@ -5,7 +5,8 @@ import React from "react";
 
 const CardBody = props => (
   <div className="card-body">
-    <p className="card-text">Click Count: {props.count}</p>
+    <p className="card-text font-weight-bold">Current Score: {props.count}</p>
+    <p className="card-text  font-weight-bold text-danger">Wins: {props.wins}</p>
     
   </div>
 );
